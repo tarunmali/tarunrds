@@ -3,18 +3,15 @@ const connectDB=require('./DB/Connection');
 const app=express();
 const mongoose= require('mongoose');
 const bcrypt=require('bcrypt');
-
-
+const db=require('./models')
 var cors = require('cors')
 
- 
+app.use(express.json());
 app.use(cors())
  
 
-
-
-
-
+const postRouter = require("./Api/Posts");
+app.use("/posts", postRouter);
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -37,9 +34,18 @@ app.use('/Api/User', require('./Api/User'));
 app.use('/Api/signin', require('./Api/signin'));
 
 
-const Port=process.env.PORT || 3000;
 
-app.listen(Port,()=>console.log(`Server is running on port ${Port}`));
+const Port=process.env.PORT || 3001;
+db.sequelize.sync().then(() => {
+    app.listen(Port, () => {
+      console.log("Server running on port 3001");
+    });
+  });
+
+
+
+
+
 
 
 

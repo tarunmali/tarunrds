@@ -4,6 +4,7 @@ import logo from "./images/logo1.jpg"
 import {Link} from 'react-router-dom'
 
 
+
 function Navbar(props) {
             return (
         <div>
@@ -93,7 +94,11 @@ function Navbar(props) {
 
                  </li>
 
+                 <li class="nav-item">
+                
+                <Link  to="/Posts"  style={{ textDecoration: 'none' }} class="nav-link">Posts</Link>
 
+                 </li>
 
                       
                       {/* <li class="nav-item">

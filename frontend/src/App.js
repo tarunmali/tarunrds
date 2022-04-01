@@ -20,6 +20,7 @@ import Profile from './components/Profile';
 import Video11 from './components/Video11';
 import Subscription from './components/Subscription';
 import Question12 from './components/Question12';
+import Posts from './components/Posts';
 // require('dotenv').config()
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
 
         <Routes>
       <Route path="/Todo" element={<Todo />} />
-
+      <Route path="/Posts" element={<Posts />} />
 
 
 
