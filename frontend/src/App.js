@@ -21,6 +21,9 @@ import Video11 from './components/Video11';
 import Subscription from './components/Subscription';
 import Question12 from './components/Question12';
 import Posts from './components/Posts';
+
+import CreatePost from './components/CreatePost';
+
 // require('dotenv').config()
 
 function App() {
@@ -41,6 +44,10 @@ function App() {
         
 
         <Routes>
+
+      <Route path="/createapost" element={<CreatePost/>}></Route>
+
+
       <Route path="/Todo" element={<Todo />} />
       <Route path="/Posts" element={<Posts />} />
 

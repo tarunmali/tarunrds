@@ -1,6 +1,8 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import {Route, Router, Link} from 'react-router-dom'
+import Home from './Home'
 
 function Posts() {
   const [listOfPosts, setListOfPosts] = useState([]);
@@ -14,7 +16,18 @@ function Posts() {
     });
   }, []);
   return (
+
+      
+
+
     <div className="App">
+
+
+
+      <Link to="/createapost" > Create a Post</Link>
+
+
+
       <h1>Hi</h1>
       {listOfPosts.map((value, key) => {
         return (
