@@ -5,17 +5,13 @@ import { useEffect, useState } from "react";
 function Posts() {
   const [listOfPosts, setListOfPosts] = useState([]);
 
-
- 
-
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_DATA}/Posts`).then((response) => {
+    axios.get("http://localhost:3001/posts").then((response) => {
       setListOfPosts(response.data);
     });
   }, []);
   return (
     <div className="App">
-      <h1>Hello</h1>
       {listOfPosts.map((value, key) => {
         return (
           <div className="post">
