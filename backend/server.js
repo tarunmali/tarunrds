@@ -35,7 +35,7 @@ app.use('/Api/signin', require('./Api/signin'));
 
 
 
-const Port=process.env.PORT || 3001;
+const Port= process.env.PORT || 3001;
 db.sequelize.sync().then(() => {
     app.listen(Port, () => {
       console.log("Server running on port 3001");

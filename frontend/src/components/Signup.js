@@ -35,6 +35,7 @@ function Signup(props) {
         e.preventDefault();
         const {name, email, phone, work, password, cpassword}=user;
 
+
         const response= await fetch(`${process.env.REACT_APP_DATA}/Api/User`,{
 
             method:"POST",
