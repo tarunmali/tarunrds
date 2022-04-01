@@ -12,6 +12,7 @@ function Posts() {
   }, []);
   return (
     <div className="App">
+      <h1>Hi</h1>
       {listOfPosts.map((value, key) => {
         return (
           <div className="post">
