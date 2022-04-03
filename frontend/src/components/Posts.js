@@ -48,7 +48,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useQuery } from 'react-query';
 import View from './View'
 
@@ -98,11 +98,12 @@ function Posts() {
 
 
 
-
+<Link to="/createapost" > Create a Post</Link>
       {data.map((mali) => {
         return (
+          
           <div
-
+          
 
 
 
@@ -112,7 +113,7 @@ function Posts() {
 
 
 
-
+            
 
             onClick={
               // ()=>setPostId(mali.id)
