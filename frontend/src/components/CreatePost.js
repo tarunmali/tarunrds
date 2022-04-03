@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import "./App.css";
 
 function CreatePost() {
   const initialValues = {
@@ -29,29 +30,29 @@ function CreatePost() {
         validationSchema={validationSchema}
       >
         <Form className="formContainer">
-          <label>Title: </label>
+          <label ></label>
           <ErrorMessage name="title" component="span" />
           <Field
             autocomplete="off"
             id="inputCreatePost"
             name="title"
-            placeholder="(Ex. Title...)"
+            placeholder="Title..."
           />
-          <label>Post: </label>
+          <label></label>
           <ErrorMessage name="postText" component="span" />
           <Field
             autocomplete="off"
             id="inputCreatePost"
             name="postText"
-            placeholder="(Ex. Post...)"
+            placeholder="Post..."
           />
-          <label>Username: </label>
+          <label></label>
           <ErrorMessage name="username" component="span" />
           <Field
             autocomplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="(Ex. John123...)"
+            placeholder="Username..."
           />
 
           <button type="submit"> Create Post</button>

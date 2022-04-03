@@ -1,8 +1,12 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {useQuery} from 'react-query';
+
+import "./App.css";
+
 
 import Todo from './components/Todo';
 
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import {useQuery} from 'react-query';
+
 
 import Blog from './components/Blog';
 
@@ -12,7 +16,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import "./App.css";
 
 import Classroom from './components/Classroom';
 import Module1 from './components/Module1';
@@ -23,6 +26,9 @@ import Question12 from './components/Question12';
 import Posts from './components/Posts';
 
 import CreatePost from './components/CreatePost';
+
+
+import View from './components/View';
 
 // require('dotenv').config()
 
@@ -44,6 +50,9 @@ function App() {
         
 
         <Routes>
+
+
+        <Route path="/Posts/:id" element ={<View/>}></Route>
 
       <Route path="/createapost" element={<CreatePost/>}></Route>
 
