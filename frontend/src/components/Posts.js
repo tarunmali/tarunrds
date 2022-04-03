@@ -49,38 +49,57 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from 'react-query';
+import View from './View'
+
+const fetcher= url => fetch(url).then(res => res.json());
 
 function Posts() {
-  const [listOfPosts, setListOfPosts] = useState([]);
-  let history = useNavigate();
-
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_DATA}/posts`).then((response) => {
-      setListOfPosts(response.data);
-    });
-  }, []);
 
 
   const[postId,setPostId]=useState(null)
 
+  let navigate = useNavigate();
+
+  // useEffect(() => {
+  //   axios.get(`${process.env.REACT_APP_DATA}/Api/posts`).then((response) => {
+  //     setListOfPosts(response.data);
+  //   });
+  // }, []);
+  
+  
+  
+
+  const {isLoading, data}=useQuery('post',()=>fetcher(`${process.env.REACT_APP_DATA}/Api/posts`))
 
 
+  if(isLoading)   return <h1>Loading.....</h1>
+
+
+
+  /// this piece of code fixes thwe clicking again bug
+  if(postId!==null)
+  {
+      return <View postId={postId} goBack={()=>setPostId(null)} />
+  }
 
   return (
     <div>
-            <h1>Testing Blog </h1>
+            {/* <h1>Testing Blog </h1>
             {listOfPosts.map(tarun=>{
                 return <p >
-                    {/* Great application of # */}
+                
                     <a onClick={()=>setPostId(tarun.id)} href="#"> {tarun.id} {tarun.title}   </a>  
+                    <a onClick={() => {navigate(`/Posts/${tarun.id}`);}}> {tarun.id} {tarun.title}   </a>  
+
                     </p>
-            })}
+            })} */}
 
 
 
 
 
-      {listOfPosts.map((mali) => {
+      {data.map((mali) => {
         return (
           <div
 
@@ -95,9 +114,10 @@ function Posts() {
 
 
 
-            onClick={() => {
-              history.push(`/Posts/${mali.id}`);
-            }}
+            onClick={
+              // ()=>setPostId(mali.id)
+              () => {navigate(`/Posts/${mali.id}`);}
+            }
           >
             <div className="title"> {mali.title} </div>
             <div className="body">{mali.postText}</div>

@@ -11,7 +11,7 @@ app.use(cors())
  
 
 const postRouter = require("./Api/Posts");
-app.use("/posts", postRouter);
+app.use("/Api/posts", postRouter);
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
