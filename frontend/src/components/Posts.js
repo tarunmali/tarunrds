@@ -103,8 +103,9 @@ function Posts() {
 
       {data.map((mali) => {
         return (
+          
           <div
-
+          
 
 
 
@@ -114,7 +115,7 @@ function Posts() {
 
 
 
-
+            
 
             onClick={
               // ()=>setPostId(mali.id) 
