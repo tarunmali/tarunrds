@@ -60,11 +60,7 @@ function Navbar(props) {
                   </li>
 
 
-                  <li class="nav-item">
-                
-                 <Link  to="/blog"  style={{ textDecoration: 'none' }} class="nav-link">Blog</Link>
 
-                  </li>
 
 
 
@@ -81,11 +77,7 @@ function Navbar(props) {
 
                  </li>
 
-                 <li class="nav-item">
-                
-                <Link  to="/contact"  style={{ textDecoration: 'none' }} class="nav-link">Contact Us</Link>
 
-                 </li>
 
 
                   <li class="nav-item">
@@ -97,6 +89,12 @@ function Navbar(props) {
                  <li class="nav-item">
                 
                 <Link  to="/Posts"  style={{ textDecoration: 'none' }} class="nav-link">Posts</Link>
+
+                 </li>
+
+                 <li class="nav-item">
+                
+                <Link  to="/contact"  style={{ textDecoration: 'none' }} class="nav-link">Contact Us</Link>
 
                  </li>
 

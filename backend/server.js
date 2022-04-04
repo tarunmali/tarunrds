@@ -10,6 +10,10 @@ app.use(express.json());
 app.use(cors())
  
 
+const commentsRouter=require('./routes/Comments');
+app.use("/comments", commentsRouter)
+
+
 const postRouter = require("./Api/Posts");
 app.use("/Api/posts", postRouter);
 

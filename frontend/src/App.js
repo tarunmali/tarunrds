@@ -8,7 +8,7 @@ import Todo from './components/Todo';
 
 
 
-import Blog from './components/Blog';
+
 
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -61,8 +61,6 @@ function App() {
       <Route path="/Posts" element={<Posts />} />
 
 
-
-      <Route path="/Blog" element={<Blog/>} />
 
       <Route path="/"element={<Home/>} ></Route>
       <Route path="/About"element={<About/>} ></Route>

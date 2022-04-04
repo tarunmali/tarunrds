@@ -48,7 +48,7 @@
 import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { useQuery } from 'react-query';
 import View from './View'
 
@@ -95,9 +95,11 @@ function Posts() {
                     </p>
             })} */}
 
+<h1>Click below to create a post</h1>
 
+<Link to="/createapost" > Create a Post</Link>
 
-
+<h2>Click on Post below to add a comment or view previously added comments </h2>
 
       {data.map((mali) => {
         return (
@@ -115,9 +117,9 @@ function Posts() {
 
 
             onClick={
-              // ()=>setPostId(mali.id)
+              // ()=>setPostId(mali.id) 
               () => {navigate(`/Posts/${mali.id}`);}
-            }
+            } 
           >
             <div className="title"> {mali.title} </div>
             <div className="body">{mali.postText}</div>
