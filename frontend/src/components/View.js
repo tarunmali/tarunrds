@@ -160,10 +160,10 @@ function Post() {
         {
           alert("Log in to comment")
         }
-        
-        const commentToAdd = { commentBody: newComment };
+        else
+{        const commentToAdd = { commentBody: newComment };
         setComments([...comments, commentToAdd]);
-        setNewComment("");
+        setNewComment("");}
       });
   };
 
