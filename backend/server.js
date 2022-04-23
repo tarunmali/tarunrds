@@ -1,11 +1,35 @@
 const express=require('express');
+const connectDB=require('./DB/Connection');
 const app=express();
+const mongoose= require('mongoose');
 const bcrypt=require('bcrypt');
 const db=require('./models')
 var cors = require('cors')
+const mysql=require('mysql2');
+
+//Create connection
+const db2 = mysql.createConnection({
+    host     : "aws-simplified.ctvxs2sfgoaz.us-west-1.rds.amazonaws.com",
+    user     : 'admin',
+    password : "Welcome2011",
+    //Specify database here if you want to use it otherwise if you want to create a new database
+    //then dont write the database: thingy here 
+     database : 'codecountry'
 
 
+  });
 
+
+  db2.connect((err) => {
+    if (err) {
+      throw err;
+    }
+    console.log('MySql Connected...');
+  });
+
+
+// const mysql=require('mysql');
+// dotenv.config({path:'./config.env'});
 
 app.use(express.json());
 app.use(cors())
@@ -29,7 +53,7 @@ app.use(function(req, res, next) {
 
 
 
-
+connectDB();
 
 //middleware
 app.use(express.json({extended:false}));
@@ -81,6 +105,6 @@ app.get('/signup', (req, res) => {
     res.send("signup");
 });
 
-
+module.exports=db2;
 
 
