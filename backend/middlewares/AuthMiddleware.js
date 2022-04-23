@@ -7,8 +7,10 @@ const validateToken = (req, res, next) => {
 
   try {
     const validToken = verify(accessToken, "maybegeneraterandomly");
-
+    req.user = validToken;
+    // now accessible everywhere
     if (validToken) {
+    
       return next();
     }
   } catch (err) {
