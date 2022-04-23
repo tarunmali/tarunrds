@@ -3,6 +3,7 @@ import signinpic from './images/signinpic.svg';
 import {Routes, Route,Link, useNavigate, NavLink} from 'react-router-dom';
 import zxcvbn from 'zxcvbn';
 import confetti from 'canvas-confetti';
+import Classroom   from './Classroom';
 
 
 
@@ -72,7 +73,7 @@ function Login(props) {
             //     spread:180
             //   });
 
-            navigate('/login')
+            navigate('/Dashboard/Classroom')
         }
 
         else{
