@@ -125,6 +125,7 @@ function Posts() {
             <div className="title"> {mali.title} </div>
             <div className="body">{mali.postText}</div>
             <div className="footer">{mali.username}</div>
+            
           </div>
         );
       })}

@@ -27,6 +27,8 @@ const {sign}= require('jsonwebtoken')
             if(password==result.password)
             {
                 const name=result.name;
+                // console.log("TM");
+                // console.log(name);
                 const accessToken=sign({email:email, name:name},"maybegeneraterandomly");
                 
                 res.status(200).json({accessToken:accessToken});

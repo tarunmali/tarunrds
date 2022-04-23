@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import "./App.css";
+import "./sql.css";
 import { useNavigate } from "react-router";
 
 function CreatePost() {
@@ -57,7 +57,7 @@ function CreatePost() {
             autocomplete="off"
             id="inputCreatePost"
             name="username"
-            placeholder="Username..."
+            placeholder="Name..."
           />
 
           <button type="submit"> Create Post</button>

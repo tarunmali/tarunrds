@@ -6,6 +6,7 @@ const validateToken = (req, res, next) => {
   if (!accessToken) return res.json({ error: "User not logged in!" });
 
   try {
+
     const validToken = verify(accessToken, "maybegeneraterandomly");
     req.user = validToken;
     // now accessible everywhere

@@ -125,6 +125,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./sql.css";
 
 function Post() {
   let { id } = useParams();
@@ -161,7 +162,7 @@ function Post() {
           alert("Log in to comment")
         }
         else
-{        const commentToAdd = { commentBody: newComment };
+{        const commentToAdd = { commentBody: newComment, username: response.data.username };
         setComments([...comments, commentToAdd]);
         setNewComment("");}
       });
@@ -194,6 +195,7 @@ function Post() {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
+                <div > Username: {comment.username}</div>
               </div>
             );
           })}
