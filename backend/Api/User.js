@@ -15,7 +15,7 @@ route.post('/',async(req,res)=>
     {
        return res.status(422).json({error:"Please  fill all the fields"}); 
     }
-    const [result, metadata] = await sequelize.query(`SELECT * FROM user WHERE email='${email}'`, { type: QueryTypes.SELECT });
+    const [result, metadata] = await sequelize.query(`SELECT * FROM Users WHERE email='${email}'`, { type: QueryTypes.SELECT });
 
     console.log();
 if(typeof result === 'object')
@@ -38,7 +38,7 @@ else
         else
         {
 
-            let sql=`INSERT INTO user (name,email,work,password,phone) VALUES ("${name}","${email}","${work}","${password}",${phone});`;
+            let sql=`INSERT INTO Users (name,email,work,password,phone) VALUES ("${name}","${email}","${work}","${password}",${phone});`;
             await sequelize.query(sql);
             res.status(200).json({ message: "user registered successfuly" });
         }

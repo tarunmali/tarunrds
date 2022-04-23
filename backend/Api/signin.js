@@ -19,7 +19,7 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
            return res.status(422).json({error:"Please fill all the fields"}); 
         }
 
-       const [result, metadata] = await sequelize.query(`SELECT * FROM user WHERE email="${email}"`,{ type: QueryTypes.SELECT });
+       const [result, metadata] = await sequelize.query(`SELECT * FROM Users WHERE email="${email}"`,{ type: QueryTypes.SELECT });
     
         if(typeof result === 'object')
         {
