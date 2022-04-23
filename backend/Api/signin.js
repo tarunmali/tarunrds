@@ -1,5 +1,4 @@
 const express=require('express');
-const jwt=require('jsonwebtoken');
 const route=express.Router();
 const bcrypt=require('bcrypt');
 const db=require('../server.js');
@@ -9,6 +8,8 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
     host: "aws-simplified.ctvxs2sfgoaz.us-west-1.rds.amazonaws.com",
     dialect: "mysql",
   });
+const {sign}= require('jsonwebtoken')
+
 
     //login route
      route.post('/',async(req,res)=>{
@@ -25,7 +26,9 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
         {
             if(password==result.password)
             {
-                res.status(200).json({message:"User logged in successfully"});
+                const accessToken=sign({email:email},"maybegeneraterandomly");
+                
+                res.status(200).json({accessToken:accessToken});
 
             }
             else

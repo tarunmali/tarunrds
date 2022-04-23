@@ -1,10 +1,10 @@
 const express=require('express');
 const app=express();
-const mongoose= require('mongoose');
 const bcrypt=require('bcrypt');
 const db=require('./models')
 var cors = require('cors')
 const mysql=require('mysql2');
+const {sign}= require('jsonwebtoken')
 
 //Create connection
 const db2 = mysql.createConnection({

@@ -63,11 +63,12 @@ function Login(props) {
         const errata=data1.error;
 
 
-
+        console.log(data1.accessToken);
         if(data2==200)
         {
             window.alert("Successfully login")
- 
+            
+            sessionStorage.setItem("accessToken",data1.accessToken);
             // confetti({
             //     particleCount: 600,
             //     spread:180
