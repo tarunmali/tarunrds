@@ -42,3 +42,4 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
       });
 
 module.exports=route;
+
