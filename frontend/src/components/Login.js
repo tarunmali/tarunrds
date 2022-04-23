@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import signinpic from './images/signinpic.svg';
 import {Routes, Route,Link, useNavigate, NavLink} from 'react-router-dom';
-// import zxcvbn from 'zxcvbn';
+import zxcvbn from 'zxcvbn';
 import confetti from 'canvas-confetti';
 
 
@@ -27,14 +27,14 @@ function Login(props) {
         setUser({...user, [name]:value});
     }
 
-    // let result=zxcvbn(user.password)
+    let result=zxcvbn(user.password)
 
     const PostData=async(e)=>{
 
         e.preventDefault();
         const {name, email, phone, work, password, cpassword}=user;
 
-        const response= await fetch(`${process.env.REACT_APP_DATA}/Api/User`,{
+        const response= await fetch(`${process.env.REACT_APP_DATA}/Api/signin`,{
 
             method:"POST",
             headers:{
@@ -65,12 +65,12 @@ function Login(props) {
 
         if(data2==200)
         {
-            window.alert("Successfully registered")
+            window.alert("Successfully login")
  
-            confetti({
-                particleCount: 600,
-                spread:180
-              });
+            // confetti({
+            //     particleCount: 600,
+            //     spread:180
+            //   });
 
             navigate('/login')
         }
