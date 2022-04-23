@@ -147,8 +147,20 @@ function Post() {
       .post(`${process.env.REACT_APP_DATA}/comments`, {
         commentBody: newComment,
         PostId: id,
-      })
+      },
+      {
+        headers: {
+          accessToken: sessionStorage.getItem("accessToken")
+         }
+        }  
+
+      )
       .then((response) => {
+        if(response.data.error)
+        {
+          alert("Log in to comment")
+        }
+        
         const commentToAdd = { commentBody: newComment };
         setComments([...comments, commentToAdd]);
         setNewComment("");
