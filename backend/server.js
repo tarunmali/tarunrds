@@ -1,5 +1,4 @@
 const express=require('express');
-const connectDB=require('./DB/Connection');
 const app=express();
 const mongoose= require('mongoose');
 const bcrypt=require('bcrypt');
