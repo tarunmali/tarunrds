@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
 
 
 
-connectDB();
+
 
 //middleware
 app.use(express.json({extended:false}));
