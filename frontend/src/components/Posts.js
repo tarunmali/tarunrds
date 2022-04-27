@@ -107,13 +107,17 @@ function Posts() {
                         } 
             >{mali.postText}</div>
             <div className="footer">
+
               {mali.username}
+              <div>--</div>
+
               <button
-              
-              
               onClick={()=>likeAPost(mali.id)} >
                 Like❤️
               </button>
+              <div>-People who loved this post: </div>
+
+                <div>{mali.Likes.length}</div>
 
 
               </div>
