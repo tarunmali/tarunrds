@@ -46,6 +46,13 @@ function Navbar(props) {
 
                   </li>
 
+
+                      
+                {
+
+                  !sessionStorage.getItem('accessToken') &&(
+                    <>
+
                   <li class="nav-item">
                 
                  <Link  to="/signup" style={{ textDecoration: 'none' }} class="nav-link">Signup</Link>
@@ -55,9 +62,13 @@ function Navbar(props) {
 
                   <li class="nav-item">
                 
-                 <Link  to="/login"  style={{ textDecoration: 'none' }} class="nav-link">login</Link>
+                 <Link  to="/login"  style={{ textDecoration: 'none' }} class="nav-link">login </Link>
 
                   </li>
+                  </>
+                  )
+              }
+
 
 
 
@@ -97,6 +108,20 @@ function Navbar(props) {
                 <Link  to="/contact"  style={{ textDecoration: 'none' }} class="nav-link">Contact Us</Link>
 
                  </li>
+
+                
+              {
+                sessionStorage.getItem('accessToken') &&(
+                  <>
+                <li class="nav-item">
+                
+                <Link  to="/login"  style={{ textDecoration: 'none' }} class="nav-link">Logout </Link>
+
+                 </li>
+
+                  </>
+                )
+              }
 
                       
                       {/* <li class="nav-item">
