@@ -23,7 +23,7 @@ const db2 = mysql.createConnection({
     if (err) {
       throw err;
     }
-    console.log('MySql Connected...');
+    console.log('Aws Connected...');
   });
 
 
@@ -33,6 +33,10 @@ const db2 = mysql.createConnection({
 app.use(express.json());
 app.use(cors())
  
+
+const likesRouter=require('./routes/Likes');
+app.use("/like", likesRouter)
+
 
 const commentsRouter=require('./routes/Comments');
 app.use("/comments", commentsRouter)

@@ -1,48 +1,3 @@
-// import "./App.css";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-// import {Route, Router, Link} from 'react-router-dom'
-// import Home from './Home'
-
-// function Posts() {
-//   const [listOfPosts, setListOfPosts] = useState([]);
-
- 
-  
-
-//   useEffect(() => {
-//     axios.get( `${process.env.REACT_APP_DATA}/posts`).then((response) => {
-//       setListOfPosts(response.data);
-//     });
-//   }, []);
-//   return (
-
-      
-
-
-//     <div className="App">
-
-
-
-//       <Link to="/createapost" > Create a Post</Link>
-
-
-
-//       <h1>Hi</h1>
-//       {listOfPosts.map((value, key) => {
-//         return (
-//           <div className="post">
-//             <div className="title"> {value.title} </div>
-//             <div className="body">{value.postText}</div>
-//             <div className="footer">{value.username}</div>
-//           </div>
-//         );
-//       })}
-//     </div>
-//   );
-// }
-
-// export default Posts;
 
 
 import React from "react";
@@ -53,6 +8,31 @@ import { useQuery } from 'react-query';
 import View from './View'
 
 const fetcher= url => fetch(url).then(res => res.json());
+
+
+const likeAPost = (postId) => {
+  axios.post(`${process.env.REACT_APP_DATA}/like`, 
+  {
+    PostId:postId
+  },
+  {
+    headers:{accessToken: sessionStorage.getItem("accessToken")}
+  }
+  ).then((response) => {
+
+    console.log(response)
+    if(response.data.error)
+    {
+      alert("Log in to like a post ")
+    }
+    else
+    {
+      alert(response.data);
+    }
+    
+  })
+
+}
 
 function Posts() {
 
@@ -117,14 +97,26 @@ function Posts() {
 
             
 
-            onClick={
-              // ()=>setPostId(mali.id) 
-              () => {navigate(`/Posts/${mali.id}`);}
-            } 
+
           >
             <div className="title"> {mali.title} </div>
-            <div className="body">{mali.postText}</div>
-            <div className="footer">{mali.username}</div>
+            <div className="body"
+                        onClick={
+                          // ()=>setPostId(mali.id) 
+                          () => {navigate(`/Posts/${mali.id}`);}
+                        } 
+            >{mali.postText}</div>
+            <div className="footer">
+              {mali.username}
+              <button
+              
+              
+              onClick={()=>likeAPost(mali.id)} >
+                Like❤️
+              </button>
+
+
+              </div>
             
           </div>
         );
