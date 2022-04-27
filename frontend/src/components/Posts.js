@@ -138,6 +138,14 @@ function Posts() {
 
                 <div>{mali.Likes.length}</div>
 
+                { 1 &&
+                <>
+                <button>
+                  delete 
+                </button>
+                </>
+                }
+
 
               </div>
             
