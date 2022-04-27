@@ -23,7 +23,9 @@ function CreatePost() {
   });
 
   const onSubmit = (data) => {
-    axios.post(`${process.env.REACT_APP_DATA}/Api/posts`, data).then((response) => {
+    axios.post(`${process.env.REACT_APP_DATA}/Api/posts`, data,
+    {headers:{accessToken: sessionStorage.getItem("accessToken")}}
+    ).then((response) => {
       navigate("/Posts");
     });
   };
