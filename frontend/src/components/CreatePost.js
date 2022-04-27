@@ -19,7 +19,7 @@ function CreatePost() {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("You must input a Title!"),
     postText: Yup.string().required(),
-    username: Yup.string().min(3).max(15).required(),
+    // username: Yup.string().min(3).max(15).required(),
   });
 
   const onSubmit = (data) => {
@@ -28,7 +28,12 @@ function CreatePost() {
     });
   };
   return (
-    <div className="createPostPage">
+
+    !sessionStorage.getItem('accessToken') ?
+    <h1>Login to create a post</h1> :
+    (
+      <>
+      <div className="createPostPage">
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -53,18 +58,25 @@ function CreatePost() {
           />
           <label></label>
           <ErrorMessage name="username" component="span" />
-          <Field
+          {/* <Field
             autocomplete="off"
             id="inputCreatePost"
             name="username"
             placeholder="Name..."
-          />
+          /> */}
 
           <button type="submit"> Create Post</button>
         </Form>
       </Formik>
     </div>
+    </>
+    )
+
+
+    
+        
   );
+        
 }
 
 export default CreatePost;
