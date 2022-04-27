@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link} from "react-router-dom";
 import { useQuery } from 'react-query';
 import View from './View'
-
+import { useJwt } from "react-jwt";
 const fetcher= url => fetch(url).then(res => res.json());
 
 
@@ -22,7 +22,7 @@ const likeAPost = (postId) => {
   }
   ).then((response) => {
 
-    console.log(response)
+    
     if(response.data.error)
     {
       alert("Log in to like/dislike a post ")
@@ -38,8 +38,31 @@ const likeAPost = (postId) => {
 
 function Posts() {
 
+const accessToken=sessionStorage.getItem('accessToken');
+
+const validToken = useJwt(accessToken, "maybegeneraterandomly");
+
+let currentEmail;
+
+
+console.log(validToken)
+if(validToken.decodedToken!=null)
+{
+  
+   currentEmail=validToken.decodedToken.email;
 
   
+}
+
+// if(!validToken)
+// {
+//   console.log(validToken.decodedToken.email)
+//   currentEmail=validToken.decodedToken.email;
+
+// }
+
+
+
 
   const[postId,setPostId]=useState(null)
 
@@ -138,7 +161,7 @@ function Posts() {
 
                 <div>{mali.Likes.length}</div>
 
-                { 1 &&
+                { currentEmail==mali.username &&
                 <>
                 <button>
                   delete 
