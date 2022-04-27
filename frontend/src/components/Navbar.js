@@ -1,7 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "./images/logo1.jpg"
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+
+
+
+const Logout = () => {
+  sessionStorage.removeItem('accessToken');
+  
+}
+
 
 
 
@@ -113,12 +121,19 @@ function Navbar(props) {
               {
                 sessionStorage.getItem('accessToken') &&(
                   <>
-                <li class="nav-item">
+                  <a href="/login">
+                  <li class="nav-item">
+                  <button onClick={Logout}>
+                    Logout
+                  </button>
+                  </li>
+                  </a>
+
                 
-                <Link  to="/login"  style={{ textDecoration: 'none' }} class="nav-link">Logout </Link>
+                
+    
 
-                 </li>
-
+                 
                   </>
                 )
               }

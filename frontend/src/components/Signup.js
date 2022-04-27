@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import signuppage from './images/signuppic.svg';
 import {Routes, Route,Link, useNavigate, NavLink} from 'react-router-dom';
 // import zxcvbn from 'zxcvbn';
-import Login from './Login';
 import confetti from 'canvas-confetti';
 
 

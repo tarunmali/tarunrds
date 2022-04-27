@@ -1121,3 +1121,9 @@ label.valid:after {
   top: 0;
   left: 0;
 }
+
+.navbar button{
+  background-color: #ADD8E6;
+  width: 125px;
+
+}
