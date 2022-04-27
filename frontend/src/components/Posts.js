@@ -10,6 +10,8 @@ import View from './View'
 const fetcher= url => fetch(url).then(res => res.json());
 
 
+
+
 const likeAPost = (postId) => {
   axios.post(`${process.env.REACT_APP_DATA}/like`, 
   {
@@ -23,7 +25,7 @@ const likeAPost = (postId) => {
     console.log(response)
     if(response.data.error)
     {
-      alert("Log in to like a post ")
+      alert("Log in to like/dislike a post ")
     }
     else
     {
@@ -36,6 +38,8 @@ const likeAPost = (postId) => {
 
 function Posts() {
 
+
+  
 
   const[postId,setPostId]=useState(null)
 
@@ -75,11 +79,28 @@ function Posts() {
                     </p>
             })} */}
 
-<h1>Click below to create a post</h1>
 
-<Link to="/createapost" > Create a Post</Link>
 
-<h2>Click on Post below to add a comment or view previously added comments </h2>
+<h3>Click on the body of post to comment</h3>
+
+<button>
+  
+  <Link  to="/createapost"  style={{ textDecoration: 'none' }} class="nav-link">Create ✍️ a Post!</Link>
+
+</button>
+
+
+
+<h3></h3>
+
+{/* <button  style={{ textDecoration: 'none' }} class="nav-link"> 
+  
+    Click me to view the most ❤️ post
+
+</button> */}
+
+
+
 
       {data.map((mali) => {
         return (
@@ -108,14 +129,12 @@ function Posts() {
             >{mali.postText}</div>
             <div className="footer">
 
-              {mali.username}
-              <div>--</div>
-
+              Author: {mali.username} &zwnj; &zwnj; &#8205; &#8205; &#8205; &#8205;
               <button
               onClick={()=>likeAPost(mali.id)} >
                 Like❤️
               </button>
-              <div>-People who loved this post: </div>
+              <div>&#8205; &#8205; &#8205;  &#8205;  &#8205; &#8205; &#8205; 👨   </div>
 
                 <div>{mali.Likes.length}</div>
 
