@@ -17,6 +17,7 @@ router.get("/byId/:id", async (req, res) => {
 router.post("/",validateToken, async (req, res) => {
   const post = req.body;
   post.username=req.user.email;
+  post.name=req.user.name;
   await Posts.create(post);
   res.json(post);
 });

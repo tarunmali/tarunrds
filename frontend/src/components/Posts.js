@@ -152,19 +152,22 @@ if(validToken.decodedToken!=null)
             >{mali.postText}</div>
             <div className="footer">
 
-              Author: {mali.username} &zwnj; &zwnj; &#8205; &#8205; &#8205; &#8205;
+              {mali.username}  &#8205; &#8205;
               <button
               onClick={()=>likeAPost(mali.id)} >
                 Like❤️
               </button>
-              <div>&#8205; &#8205; &#8205;  &#8205;  &#8205; &#8205; &#8205; 👨   </div>
+              <div>   &#8205; &#8205; &#8205; 👨   </div>
 
                 <div>{mali.Likes.length}</div>
+
+
+                <div>&#8205;  &#8205;    </div>
 
                 { currentEmail==mali.username &&
                 <>
                 <button>
-                  delete 
+                  Delete🗑️
                 </button>
                 </>
                 }
