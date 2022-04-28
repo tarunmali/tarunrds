@@ -32,6 +32,9 @@ const db2 = mysql.createConnection({
 
 app.use(express.json());
 app.use(cors())
+
+const profileRouter=require('./routes/Profile');
+app.use("/profile", profileRouter)
  
 const dataRouter=require('./routes/Data');
 app.use("/data", dataRouter)
