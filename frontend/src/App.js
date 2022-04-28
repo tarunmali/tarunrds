@@ -8,8 +8,7 @@ import Todo from './components/Todo';
 
 
 
-
-
+import ChangePassword from './components/ChangePassword';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -51,7 +50,7 @@ function App() {
 
         <Routes>
 
-
+          <Route path="/changepassword" element={<ChangePassword/>} />
         <Route path="/Posts/:id" element ={<View/>}></Route>
 
       <Route path="/createapost" element={<CreatePost/>}></Route>

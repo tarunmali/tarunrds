@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+
 import axios from "axios";
 import { useJwt } from "react-jwt";
-let flag ;
 
+import { useNavigate, Link} from "react-router-dom";
+
+let flag ;
 
 function Profile() {
     
@@ -47,7 +49,7 @@ function Profile() {
         <h1> Email: {postObject.email} </h1>
         <h1> Phone: {postObject.phone} </h1>
         <h1> Work: {postObject.work} </h1>
-        <button onClick={viewPassword}>View password</button>
+        <button onClick={viewPassword} style={{ textDecoration: 'none' }} class="nav-link">🔑View password</button>
 
         {
                 flag &&(
@@ -59,7 +61,11 @@ function Profile() {
                   </>
                 )
               }
-        
+        <button>
+  
+  <Link  to="/changepassword"  style={{ textDecoration: 'none' }} class="nav-link">Change password</Link>
+
+</button>
         
       
 
