@@ -9,7 +9,24 @@ import View from './View'
 import { useJwt } from "react-jwt";
 const fetcher= url => fetch(url).then(res => res.json());
 
+const deletePost=(postId)=>{
+  axios.delete(`${process.env.REACT_APP_DATA}/Api/posts/${postId}`,
+  {
+    headers:{accessToken: sessionStorage.getItem("accessToken")}
+  }
+  ).then((response) => {
+    console.log(response.data)
+    if(response.data.error)
+    {
+      alert("Log in to delete a post ")
+    }
+    else
+    {
+      alert(response.data);
+    }
+  })
 
+}
 
 
 const likeAPost = (postId) => {
@@ -166,7 +183,7 @@ if(validToken.decodedToken!=null)
 
                 { currentEmail==mali.username &&
                 <>
-                <button>
+                <button onClick={()=>{deletePost(mali.id)}}>
                   Delete🗑️
                 </button>
                 </>
