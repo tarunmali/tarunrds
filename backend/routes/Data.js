@@ -11,12 +11,20 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
 
 
 router.get("/", async (req, res) => {
-    const [result, metadata] = await sequelize.query("select count(*) from Users;");
-    const data=result[0]["count(*)"];
-    // console.log(result[0]["count(*)"]);
-    console.log("MaliMali");
-    console.log(data);
-    res.json(data);
+    const [result1, metadata1] = await sequelize.query("select count(*) from Users;");
+    
+
+    const users=result1[0]["count(*)"];
+    const [result2, metadata2] = await sequelize.query("select count(*) from Comments;");
+    const comments=result2[0]["count(*)"];
+    const [result3, metadata3] = await sequelize.query("select count(*) from Likes;");
+    const likes=result3[0]["count(*)"];
+    const [result4, metadata4] = await sequelize.query("select count(*) from Posts;");
+    const posts=result4[0]["count(*)"];
+
+    //Sent the above data to the frontend
+    res.json({users,comments,likes,posts});
+
 
 
     // console.log("Tarun");
@@ -25,11 +33,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/byId/:id", async (req, res) => {
-  const id = req.params.id;
-  const post = await Posts.findByPk(id);
-  res.json(post);
-});
+
 
 
 
