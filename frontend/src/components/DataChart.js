@@ -1,12 +1,28 @@
-import React from 'react';
+
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from 'recharts';
+
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const fetcher= url => fetch(url).then(res => res.json());
+
 
 
 const Hope = () => {
+	const [postObject, setPostObject] = useState({});
+
+	useEffect(() => {
+		axios.get(`${process.env.REACT_APP_DATA}/data`).then((response) => {
+		  setPostObject(response.data);
+		});
+	
+	  }, []);
+	
+	  const x=8;
 
 // Sample data
 const data = [
-{name: 'Number of users', students: 3},
+{name: 'Number of users', students: postObject.totalUsers},
 {name: 'Technical scripter', students: 7},
 {name: 'Geek-i-knack', students: 2},
 {name: 'Geek-o-mania', students: 1}

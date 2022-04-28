@@ -98,7 +98,8 @@ if(validToken.decodedToken!=null)
 
 
   if(isLoading)   return <h1>Loading.....</h1>
-
+  console.log("Mali");
+  console.log(data);
 
 
   /// this piece of code fixes thwe clicking again bug
