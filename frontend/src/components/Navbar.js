@@ -73,6 +73,10 @@ function Navbar(props) {
                  <Link  to="/login"  style={{ textDecoration: 'none' }} class="nav-link">login </Link>
 
                   </li>
+
+
+
+
                   </>
                   )
               }
@@ -84,11 +88,7 @@ function Navbar(props) {
 
 
 
-                  <li class="nav-item">
-                
-                 <Link  to="/Profile"  style={{ textDecoration: 'none' }} class="nav-link">User Profile</Link>
 
-                  </li>
 
                   <li class="nav-item">
                 
@@ -121,6 +121,14 @@ function Navbar(props) {
               {
                 sessionStorage.getItem('accessToken') &&(
                   <>
+
+                  <li class="nav-item">
+                
+                 <Link  to="/Profile"  style={{ textDecoration: 'none' }} class="nav-link">User Profile</Link>
+
+                  </li>
+
+
                   <a href="/login">
                   <li class="nav-item">
                   <button onClick={Logout}>
