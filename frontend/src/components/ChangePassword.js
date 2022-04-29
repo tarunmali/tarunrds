@@ -1,83 +1,56 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import React, { useState } from "react";
 import axios from "axios";
-import "./sql.css";
-import { useNavigate } from "react-router";
 
 function ChangePassword() {
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
-  let navigate= useNavigate();
+  const changePassword = () => {
+    axios
+      .put(
+        `${process.env.REACT_APP_DATA}/Api/User/changepassword`
 
+,
+        {
+          oldPassword: oldPassword,
+          newPassword: newPassword,
+        },
+        {
+          headers: {
+            accessToken: localStorage.getItem("accessToken"),
+          },
+        }
+      )
+      .then((response) => {
+        
+          alert(response);
+        
+      });
 
-  const initialValues = {
-    Password: "",
-    postText: "",
-    username: "",
+      console.log(oldPassword, newPassword);
+
   };
 
-  const validationSchema = Yup.object().shape({
-    Password: Yup.string().min(3).max(15).required("Password required"),
-    confirmPassword: Yup.string().required("Confirm Password required"),
-    // username: Yup.string().min(3).max(15).required(),
-  });
-
-  const onSubmit = (data) => {
-    axios.post(`${process.env.REACT_APP_DATA}/Api/posts`, data,
-    {headers:{accessToken: sessionStorage.getItem("accessToken")}}
-    ).then((response) => {
-      navigate("/Posts");
-    });
-  };
   return (
-
-
-    (
-      <>
-      <div className="createPostPage">
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
-        <Form className="formContainer">
-          <label ></label>
-          <ErrorMessage name="Password" component="span" />
-          <Field
-            autocomplete="off"
-            id="inputCreatePost"
-            name="Password"
-            placeholder="New Password"
-          />
-          <label></label>
-          <ErrorMessage name="postText" component="span" />
-          <Field
-            autocomplete="off"
-            id="inputCreatePost"
-            name="postText"
-            placeholder="Confirm password"
-          />
-          <label></label>
-          <ErrorMessage name="username" component="span" />
-          {/* <Field
-            autocomplete="off"
-            id="inputCreatePost"
-            name="username"
-            placeholder="Name..."
-          /> */}
-
-          <button type="submit"> Change password</button>
-        </Form>
-      </Formik>
+    <div>
+      <h1>Change Your Password</h1>
+      <input
+        type="text"
+        placeholder="Old Password..."
+        onChange={(event) => {
+          setOldPassword(event.target.value);
+        }}
+      />
+      <input
+        type="text"
+        placeholder="New Password..."
+        onChange={(event) => {
+          setNewPassword(event.target.value);
+        }}
+      />
+      <button onClick={changePassword}> Save Changes</button>
     </div>
-    </>
-    )
-
-
-    
-        
   );
-        
 }
 
 export default ChangePassword;

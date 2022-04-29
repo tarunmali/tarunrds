@@ -28,10 +28,27 @@ import CreatePost from './components/CreatePost';
 
 
 import View from './components/View';
+import { useJwt } from "react-jwt";
 
 // require('dotenv').config()
 
 function App() {
+
+  const accessToken=sessionStorage.getItem('accessToken');
+  const validToken = useJwt(accessToken, "maybegeneraterandomly");
+
+
+  let pid=0;
+  if(validToken.decodedToken!=null)
+  {
+    
+     pid=validToken.decodedToken.id;
+  }
+  console.log("pid from navbar");
+    console.log(pid);
+
+
+
 
   useQuery('hello')
 
@@ -67,7 +84,7 @@ function App() {
       <Route path="/Login"element={<Login/>} ></Route>
       <Route path="/Signup"element={<Signup/>} ></Route>
       <Route path="/Dashboard/Classroom"element={<Classroom/>} ></Route>
-      <Route path="/Profile"element={<Profile/>} ></Route>
+      <Route path="/Profile"element={<Profile pid={pid}/>} ></Route>
       <Route path="/Dashboard/Classroom/Module_1"element={<Module1/>} ></Route>
       <Route path="/Dashboard/Classroom/Module_1/Video11"element={<Video11/>} ></Route>
       <Route path="Subscription"element={<Subscription/>} ></Route>

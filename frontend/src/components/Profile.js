@@ -1,76 +1,46 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useContext } from "react";
+import { useParams, } from "react-router-dom";
 import axios from "axios";
-import { useJwt } from "react-jwt";
 
-import { useNavigate, Link} from "react-router-dom";
 
-let flag ;
-
-function Profile() {
+function Profile(props) {
+  
     
+  const [username, setUsername] = useState({});
+  const viewPassword = () => {
+    console.log("clicked");
+    flag=!flag;
+    console.log(flag);
+  }
+  
+  
+  let flag ;
 
-
-    const viewPassword = () => {
-      console.log("clicked");
-      flag=!flag;
-      console.log(flag);
-    }
-
-    const accessToken=sessionStorage.getItem('accessToken');
-    const validToken = useJwt(accessToken, "maybegeneraterandomly");
-    let pid;
-
-    console.log(validToken)
-    if(validToken.decodedToken!=null)
-    {
-      
-       pid=validToken.decodedToken.id;
-       console.log(pid)
-        console.log(`${process.env.REACT_APP_DATA}/profile/${pid}`)
-      
-    }
-    const [postObject, setPostObject] = useState({});
 
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_DATA}/profile/1`).then((response) => {
-      setPostObject(response.data[0]);
-    });
-  }, []);
+  
+    axios.get(`http://localhost:3001/profile/${props.pid}`).then((response) => {
+        console.log("Use effect");
+      setUsername(response.data[0]);
+      console.log(response.data[0].name);
 
- 
+    });
+
+
+  }, []);
+  
 
   return (
-    
     <div className="profilePageContainer">
       <div className="basicInfo">
-        <h1> Name: {postObject.name} </h1>
-        <h1> Email: {postObject.email} </h1>
-        <h1> Phone: {postObject.phone} </h1>
-        <h1> Work: {postObject.work} </h1>
-        <button onClick={viewPassword} style={{ textDecoration: 'none' }} class="nav-link">🔑View password</button>
-
-        {
-                flag &&(
-                  <>
-
-                  <h1> Password: {postObject.password} </h1>
-
-                 
-                  </>
-                )
-              }
-        <button>
-  
-  <Link  to="/changepassword"  style={{ textDecoration: 'none' }} class="nav-link">Change password</Link>
-
-</button>
         
-      
+        <h1> Name: {username.name} </h1>
+        <h1> Email: {username.email} </h1>
+        <h1>Phone: {username.phone}</h1>
+        <h1>Work: {username.work}</h1>
+        
 
-
-     
       </div>
 
     </div>

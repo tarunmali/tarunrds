@@ -2,11 +2,45 @@ const express=require('express');
 const route=express.Router();
 const Sequelize = require('sequelize');
 const { QueryTypes } = require('sequelize');
+const {Users}=require('../models');
+const {validateToken}=require("../middlewares/AuthMiddleware")
 
 const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
     host: "aws-simplified.ctvxs2sfgoaz.us-west-1.rds.amazonaws.com",
     dialect: "mysql",
   });
+
+
+  route.put("/changepassword", validateToken, async (req, res) => {
+      const {oldPassword,newPassword}=req.body;
+        const email=req.user.email;
+        const user= await Users.findOne({where:{email:email}});
+        if(user.password===oldPassword)
+        {
+            await Users.update(
+                {
+                  password: user.newPassword,
+                },
+            
+                {
+                where: {
+                  email: email,
+                },
+              });
+              res.json("Password changed successfully");
+        }
+        else
+        {
+            res.json("You entered incorrect old password");
+        }
+  
+
+    
+  })
+  
+
+
+
 
 route.post('/',async(req,res)=>
 {
