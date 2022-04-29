@@ -8,27 +8,22 @@ function ChangePassword() {
   const changePassword = () => {
     axios
       .put(
-        `${process.env.REACT_APP_DATA}/Api/User/changepassword`
-
-,
+        "http://localhost:3001/changepassword",
         {
           oldPassword: oldPassword,
           newPassword: newPassword,
         },
         {
           headers: {
-            accessToken: localStorage.getItem("accessToken"),
+            accessToken: sessionStorage.getItem("accessToken"),
           },
         }
       )
       .then((response) => {
         
-          alert(response);
+          alert(response.data)
         
       });
-
-      console.log(oldPassword, newPassword);
-
   };
 
   return (

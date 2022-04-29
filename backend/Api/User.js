@@ -13,13 +13,14 @@ const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
 
   route.put("/changepassword", validateToken, async (req, res) => {
       const {oldPassword,newPassword}=req.body;
+      console.log("Hello");
         const email=req.user.email;
         const user= await Users.findOne({where:{email:email}});
         if(user.password===oldPassword)
         {
             await Users.update(
                 {
-                  password: user.newPassword,
+                  password: newPassword,
                 },
             
                 {

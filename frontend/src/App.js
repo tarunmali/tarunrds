@@ -44,8 +44,7 @@ function App() {
     
      pid=validToken.decodedToken.id;
   }
-  console.log("pid from navbar");
-    console.log(pid);
+
 
 
 

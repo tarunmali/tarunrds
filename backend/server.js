@@ -33,6 +33,10 @@ const db2 = mysql.createConnection({
 app.use(express.json());
 app.use(cors())
 
+
+const changePasswordRouter=require('./routes/ChangePassword');
+app.use("/changepassword", changePasswordRouter);
+
 const profileRouter=require('./routes/Profile');
 app.use("/profile", profileRouter)
  

@@ -1,20 +1,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, } from "react-router-dom";
 import axios from "axios";
-
+import { Link} from "react-router-dom";
 
 function Profile(props) {
   
     
   const [username, setUsername] = useState({});
-  const viewPassword = () => {
-    console.log("clicked");
-    flag=!flag;
-    console.log(flag);
-  }
+
   
-  
-  let flag ;
 
 
 
@@ -39,7 +33,11 @@ function Profile(props) {
         <h1> Email: {username.email} </h1>
         <h1>Phone: {username.phone}</h1>
         <h1>Work: {username.work}</h1>
-        
+        <button>
+  
+  <Link  to="/changepassword"  style={{ textDecoration: 'none' }} class="nav-link">🔒Change password🔒</Link>
+
+</button>
 
       </div>
 

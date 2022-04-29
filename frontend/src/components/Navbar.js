@@ -95,11 +95,11 @@ function Navbar(props) {
 
 
 
-                  <li class="nav-item">
+                  {/* <li class="nav-item">
                 
                 <Link  to="Subscription"  style={{ textDecoration: 'none' }} class="nav-link">Subscription</Link>
 
-                 </li>
+                 </li> */}
 
 
 
