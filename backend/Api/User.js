@@ -5,39 +5,15 @@ const { QueryTypes } = require('sequelize');
 const {Users}=require('../models');
 const {validateToken}=require("../middlewares/AuthMiddleware")
 
-const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
-    host: "aws-simplified.ctvxs2sfgoaz.us-west-1.rds.amazonaws.com",
+const sequelize = new Sequelize("codecountry", "doadmin", "AVNS_dRJbLBI7mJ2Hihw", {
+    host: "three-do-user-11477974-0.b.db.ondigitalocean.com",
     dialect: "mysql",
+    port:"25060"
+
+
   });
 
 
-  route.put("/changepassword", validateToken, async (req, res) => {
-      const {oldPassword,newPassword}=req.body;
-      console.log("Hello");
-        const email=req.user.email;
-        const user= await Users.findOne({where:{email:email}});
-        if(user.password===oldPassword)
-        {
-            await Users.update(
-                {
-                  password: newPassword,
-                },
-            
-                {
-                where: {
-                  email: email,
-                },
-              });
-              res.json("Password changed successfully");
-        }
-        else
-        {
-            res.json("You entered incorrect old password");
-        }
-  
-
-    
-  })
   
 
 
@@ -73,7 +49,7 @@ else
         else
         {
 
-            let sql=`INSERT INTO Users (name,email,work,password,phone) VALUES ("${name}","${email}","${work}","${password}",${phone});`;
+            let sql=`INSERT INTO Users (name,email,phone,work,password) VALUES ("${name}","${email}","${phone}","${work}","${password}");`;
             await sequelize.query(sql);
             res.status(200).json({ message: "user registered successfuly" });
         }

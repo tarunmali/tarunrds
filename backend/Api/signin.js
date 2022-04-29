@@ -4,9 +4,12 @@ const bcrypt=require('bcrypt');
 const db=require('../server.js');
 const Sequelize = require('sequelize');
 const { QueryTypes } = require('sequelize');
-const sequelize = new Sequelize("codecountry", "admin", "Welcome2011", {
-    host: "aws-simplified.ctvxs2sfgoaz.us-west-1.rds.amazonaws.com",
+const sequelize = new Sequelize("codecountry", "doadmin", "AVNS_dRJbLBI7mJ2Hihw", {
+    host: "three-do-user-11477974-0.b.db.ondigitalocean.com",
     dialect: "mysql",
+    port:"25060"
+
+
   });
 const {sign}= require('jsonwebtoken')
 
