@@ -22,6 +22,26 @@ router.post("/",validateToken, async (req, res) => {
   res.json(post);
 });
 
+router.put("/:postId", validateToken, async (req, res) => {
+  const postId = req.params.postId;
+  const newPostBody=req.body;
+
+  await Posts.update(
+    {
+      postText: newPostBody.postText,
+    },
+
+    {
+    where: {
+      id: postId,
+    },
+  });
+
+  res.json("Edited successfully");
+})
+
+
+
 router.delete("/:postId", validateToken, async (req, res) => {
   const postId = req.params.postId;
   await Posts.destroy({

@@ -9,6 +9,10 @@ import View from './View'
 import { useJwt } from "react-jwt";
 const fetcher= url => fetch(url).then(res => res.json());
 
+
+
+
+
 const deletePost=(postId)=>{
   axios.delete(`${process.env.REACT_APP_DATA}/Api/posts/${postId}`,
   {
@@ -27,6 +31,34 @@ const deletePost=(postId)=>{
   })
 
 }
+
+
+const editPost=(postId)=>{
+    let newPostText=prompt("Enter new post body");
+
+
+
+  axios.put(`${process.env.REACT_APP_DATA}/Api/posts/${postId}`,
+  {
+    postText:newPostText
+  },
+  {
+    headers:{accessToken: sessionStorage.getItem("accessToken")}
+  }
+  ).then((response) => {
+    console.log(newPostText);
+    if(response.data.error)
+    {
+      alert("Log in to edit a post ")
+    }
+    else
+    {
+      alert(response.data);
+    }
+  })
+
+}
+
 
 
 const likeAPost = (postId) => {
@@ -186,6 +218,15 @@ if(validToken.decodedToken!=null)
                 <>
                 <button onClick={()=>{deletePost(mali.id)}}>
                   Delete🗑️
+                </button>
+                  
+                <div>&#8205;  &#8205;   &#8205;  &#8205;  &#8205;
+
+&#8205; </div>
+
+
+                <button onClick={()=>{editPost(mali.id)}}>
+                  Edit✏️
                 </button>
                 </>
                 }
