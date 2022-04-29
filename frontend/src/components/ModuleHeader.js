@@ -99,6 +99,12 @@ function ModuleHeader(props) {
                 <Link to="/Dashboard/Classroom/Module_1/Question12" />
                 </MenuItem>
 
+                <MenuItem active={todoActive} icon={<FaList />}>
+                Question 2 
+                <Link to="/Dashboard/Classroom/Module_1/Question13" />
+                </MenuItem>
+
+
 
 
 

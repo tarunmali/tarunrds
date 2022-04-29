@@ -29,8 +29,8 @@ function Navbar(props) {
                     </NavLink> */}
 
                 <div class="container-fluid">
-                <img src={logo} href="/"  alt="Logo of the site" />
-                  <a class="navbar-brand" href="/">Code Country</a> 
+                <img src={logo}   alt="Logo of the site" />
+                  <a class="navbar-brand" >Code Country</a> 
                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>

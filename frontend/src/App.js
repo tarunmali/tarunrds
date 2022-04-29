@@ -22,6 +22,7 @@ import Profile from './components/Profile';
 import Video11 from './components/Video11';
 import Subscription from './components/Subscription';
 import Question12 from './components/Question12';
+import Question13 from './components/Question13';
 import Posts from './components/Posts';
 
 import CreatePost from './components/CreatePost';
@@ -88,6 +89,7 @@ function App() {
       <Route path="/Dashboard/Classroom/Module_1/Video11"element={<Video11/>} ></Route>
       <Route path="Subscription"element={<Subscription/>} ></Route>
       <Route path="/Dashboard/Classroom/Module_1/Question12"element={<Question12/>} ></Route>
+      <Route path="/Dashboard/Classroom/Module_1/Question13"element={<Question13/>} ></Route>
       <Route path="/contact" element={<Contact/>} />
 
        </Routes>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from './Header';
 import Tile from './Tile';
 import computer from "./images/computer.jpg"
 
@@ -16,17 +15,39 @@ import Module6 from "./images/Module6.svg"
 function Classroom(props) {
     return (
         <div>
-            <Header active="Classroom"/>
+            
+
+
+            
         <div className="container" >
            <h3>Classroom: A place where your Modules live</h3> 
+            
+
+
             <div className="container-fluid d-flex justify-content-center">
                 <div className="row">
+                <div className="col-md-4">
+
+                <div className="card text-center">
+                <div className="overflow">
+                    <img src={Module1} alt="Image1" className="card-img-top"/>
+                </div>
 
 
-                    <div className="col-md-4">
-                        <Tile title="Module_1" description="This is the description of the module" 
-                        link={Module1} />
-                    </div>
+                    <div className="card-body text-dark">
+                <h4 className="card-title">
+                    Module_1
+                        <p className="card-text text-secondary">
+                        Data structures and algorithms
+                        </p>
+                        <a href={`Classroom/Module_1`} className="btn btn-outline-success" > Visit module</a>
+                </h4>
+            </div>
+
+            </div>
+
+            </div>
+
 
                     <div className="col-md-4">
 

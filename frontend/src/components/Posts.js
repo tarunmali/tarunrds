@@ -154,7 +154,7 @@ if(validToken.decodedToken!=null)
 
 
 
-<h3>Click on the body of post to comment</h3>
+<h3>&zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   &zwnj;   Click on the body of post to comment</h3>
 
 <button>
   

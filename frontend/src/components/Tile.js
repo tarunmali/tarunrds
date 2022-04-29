@@ -9,13 +9,18 @@ function Tile(props) {
                     <img src={props.link} alt="Image1" className="card-img-top"/>
                 </div>
 
+
+
+
             <div className="card-body text-dark">
                 <h4 className="card-title">
                     {props.title}
                         <p className="card-text text-secondary">
                         {props.description}
                         </p>
-                        <a href={`Classroom/${props.title}`} className="btn btn-outline-success" > Visit module</a>
+                        <a  className="btn btn-outline-success" > Pay to unlock the module</a>
+
+                        {/* {href={`Classroom/${props.title}`}} */}
                 </h4>
             </div>
 
