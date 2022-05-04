@@ -13,7 +13,7 @@ const sequelize = new Sequelize("codecountry", "doadmin", "AVNS_dRJbLBI7mJ2Hihw"
 router.get("/:pid", async (req, res) => {
     const pid=req.params.pid;
     console.log(pid);
-    const [result, metadata] = await sequelize.query(`select * from Users where id=${pid};`);
+    const [result, metadata] = await sequelize.query(`select * from Users where id=${pid} ;`);
     res.json(result);
 });
 

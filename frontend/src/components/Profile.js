@@ -13,8 +13,9 @@ function Profile(props) {
 
 
   useEffect(() => {
-  
-    axios.get(`http://localhost:3001/profile/${props.pid}`).then((response) => {
+    
+    
+    axios.get(`${process.env.REACT_APP_DATA}/profile/${props.pid}`).then((response) => {
         console.log("Use effect");
       setUsername(response.data[0]);
       console.log(response.data[0].name);
