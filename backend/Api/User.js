@@ -42,17 +42,13 @@ else
     }
     else
     {
-        if(password!==cpassword)
-        {
-                return res.status(422).json({error:"Password does not match"});
-        }
-        else
-        {
 
-            let sql=`INSERT INTO Users (name,email,phone,work,password) VALUES ("${name}","${email}","${phone}","${work}","${password}");`;
-            await sequelize.query(sql);
-            res.status(200).json({ message: "user registered successfuly" });
-        }
+
+        let sql=`INSERT INTO Users (name,email,phone,work,password) VALUES ("${name}","${email}","${phone}","${work}","${password}");`;
+        await sequelize.query(sql);
+        res.status(200).json({ message: "user registered successfuly" });
+
+
     }
   }
 })
