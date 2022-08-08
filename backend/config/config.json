@@ -20,7 +20,7 @@
     "username": "doadmin",
     "password": "AVNS_db0fH5p8YUtIGbNzTOC",
     "database": "codecountry",
-    "host": "three-do-user-11477974-0.b.db.ondigitalocean.com",
+    "host": "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
     "dialect": "mysql",
     "port": "25060"
 
