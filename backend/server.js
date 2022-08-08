@@ -10,7 +10,7 @@ const {sign}= require('jsonwebtoken')
 const db2 = mysql.createConnection({
     host     : "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
     user     : "doadmin",
-    password : "",
+    password : "AVNS_db0fH5p8YUtIGbNzTOC",
     //Specify database here if you want to use it otherwise if you want to create a new database
     //then dont write the database: thingy here 
      database : 'codecountry',
