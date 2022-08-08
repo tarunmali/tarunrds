@@ -8,7 +8,7 @@ const { QueryTypes } = require('sequelize');
 //////////////////////////////////////////////////////////////////////////////////
 
 
-const sequelize = new Sequelize("codecountry", "doadmin", "AVNS_x7SNdDWbQn_6Zy492K3", {
+const sequelize = new Sequelize("codecountry", "doadmin", "AVNS_db0fH5p8YUtIGbNzTOC", {
     host: "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
     dialect: "mysql",
     port:"25060"
