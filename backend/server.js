@@ -5,31 +5,43 @@ const db=require('./models')
 var cors = require('cors')
 const mysql=require('mysql2');
 const {sign}= require('jsonwebtoken')
+// const dotenv = require('dotenv');
+// import { config } from 'dotenv';
+//convert this to 
+const {config}=require('dotenv');
+
+config({path:'./config.env'});
 
 //Create connection
-const db2 = mysql.createConnection({
-    host     : "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
-    user     : "doadmin",
-    password : "AVNS_db0fH5p8YUtIGbNzTOC",
-    //Specify database here if you want to use it otherwise if you want to create a new database
-    //then dont write the database: thingy here 
-     database : 'codecountry',
-     port     : '25060'
+// const db2 = mysql.createConnection({
+//     host     : process.env.HOST,
+//     user     : "doadmin",
+//     password : process.env.PASSWORD,
+//     //Specify database here if you want to use it otherwise if you want to create a new database
+//     //then dont write the database: thingy here 
+//      database : 'codecountry',
+//      port     : '25060'
 
 
-  });
+//   });
 
 
-  db2.connect((err) => {
-    if (err) {
-      throw err;
-    }
-    console.log('Aws Connected...');
-  });
+//   db2.connect((err) => {
+//     if (err) {
+//       throw err;
+//     }
+//     console.log('Aws Connected...');
+//   });
 
 
 // const mysql=require('mysql');
 // dotenv.config({path:'./config.env'});
+// dotenv.config();
+
+
+
+
+
 
 app.use(express.json());
 app.use(cors())
@@ -119,6 +131,6 @@ app.get('/signup', (req, res) => {
     res.send("signup");
 });
 
-module.exports=db2;
+// module.exports=db2;
 
 

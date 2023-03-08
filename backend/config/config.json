@@ -1,26 +1,26 @@
 {
   "development": {
     "username": "doadmin",
-    "password": "AVNS_db0fH5p8YUtIGbNzTOC",
+    "password": "AVNS_fGvgOi781rupLYv1XnT",
     "database": "codecountry",
-    "host": "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
+    "host": "db-mysql-blr1-35818-do-user-13714107-0.b.db.ondigitalocean.com",
     "dialect": "mysql",
     "port": "25060"
   },
   "test": {
     "username": "doadmin",
-    "password": "AVNS_db0fH5p8YUtIGbNzTOC",
+    "password": "AVNS_fGvgOi781rupLYv1XnT",
     "database": "codecountry",
-    "host": "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
+    "host": "db-mysql-blr1-35818-do-user-13714107-0.b.db.ondigitalocean.com",
     "dialect": "mysql",
     "port": "25060"
     
   },
   "production": {
     "username": "doadmin",
-    "password": "AVNS_db0fH5p8YUtIGbNzTOC",
+    "password": "AVNS_fGvgOi781rupLYv1XnT",
     "database": "codecountry",
-    "host": "db-mysql-nyc3-47654-do-user-12196224-0.b.db.ondigitalocean.com",
+    "host": "db-mysql-blr1-35818-do-user-13714107-0.b.db.ondigitalocean.com",
     "dialect": "mysql",
     "port": "25060"
 
