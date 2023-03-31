@@ -19,7 +19,7 @@ const db2 = mysql.createConnection({
     password : process.env.PASSWORD,
     //Specify database here if you want to use it otherwise if you want to create a new database
     //then dont write the database: thingy here 
-    //  database : 'codecountry',
+     database : 'codecountry',
      port     : '25060'
 
 
