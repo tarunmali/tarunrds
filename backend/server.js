@@ -13,17 +13,17 @@ const {config}=require('dotenv');
 config({path:'./config.env'});
 
 //Create connection
-// const db2 = mysql.createConnection({
-//     host     : process.env.HOST,
-//     user     : "doadmin",
-//     password : process.env.PASSWORD,
-//     //Specify database here if you want to use it otherwise if you want to create a new database
-//     //then dont write the database: thingy here 
-//      database : 'codecountry',
-//      port     : '25060'
+const db2 = mysql.createConnection({
+    host     : process.env.HOST,
+    user     : "doadmin",
+    password : process.env.PASSWORD,
+    //Specify database here if you want to use it otherwise if you want to create a new database
+    //then dont write the database: thingy here 
+    //  database : 'codecountry',
+     port     : '25060'
 
 
-//   });
+  });
 
 
 //   db2.connect((err) => {
@@ -131,6 +131,6 @@ app.get('/signup', (req, res) => {
     res.send("signup");
 });
 
-// module.exports=db2;
+module.exports=db2;
 
 
