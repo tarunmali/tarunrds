@@ -26,12 +26,12 @@ const db2 = mysql.createConnection({
   });
 
 
-//   db2.connect((err) => {
-//     if (err) {
-//       throw err;
-//     }
-//     console.log('Aws Connected...');
-//   });
+  db2.connect((err) => {
+    if (err) {
+      throw err;
+    }
+    console.log('Aws Connected...');
+  });
 
 
 // const mysql=require('mysql');
